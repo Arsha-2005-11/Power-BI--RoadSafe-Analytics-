@@ -1,1 +1,71 @@
+# How to Clean Messy Data
 
+Messy data is raw data that contains **errors, inconsistencies, or missing values**. Cleaning it ensures accurate analysis.
+
+---
+
+## 1. Common Issues in Messy Data
+
+1. **Missing values**
+   - Empty cells or placeholders like `NA`, `null`, `?`.
+2. **Duplicates**
+   - Same row repeated multiple times.
+3. **Inconsistent formats**
+   - Dates: `DD/MM/YYYY` vs `MM/DD/YYYY`
+   - Text: `NYC` vs `New York City`
+4. **Outliers**
+   - Values that are unusually high or low compared to others.
+5. **Incorrect data types**
+   - Numbers stored as text, or dates stored as strings.
+6. **Extra whitespace or typos**
+   - Leading/trailing spaces, spelling errors.
+
+---
+
+## 2. Steps to Clean Messy Data
+
+### Step 1: Inspect the Data
+- Check **missing values**, **duplicates**, and **column types**.
+- Tools: `head()`, `info()`, `describe()` (Python Pandas)
+
+### Step 2: Handle Missing Values
+- Remove rows or columns with too many missing values.
+- Fill missing data:
+  - Numerical → mean, median, or 0
+  - Categorical → mode or "Unknown"
+
+### Step 3: Remove Duplicates
+- Delete repeated rows to avoid bias.
+- Tools: `drop_duplicates()` (Pandas)
+
+### Step 4: Standardize Formats
+- Convert all dates to a single format.
+- Standardize text (e.g., all uppercase or lowercase).
+
+### Step 5: Correct Errors and Typos
+- Replace incorrect values or misspellings.
+- Example: `NYC` → `New York City`, `mle` → `male`
+
+### Step 6: Handle Outliers
+- Detect using statistics (e.g., values beyond 3 standard deviations)
+- Decide whether to remove or adjust based on context.
+
+### Step 7: Convert Data Types
+- Ensure numerical columns are numbers, categorical columns are categories, and dates are datetime.
+
+### Step 8: Validate Data
+- Check ranges and logical consistency.
+- Example: Age > 0, Salary ≥ 0, Dates not in future if historical.
+
+---
+
+## 3. Tools Commonly Used
+
+- **Python (Pandas, NumPy)**
+- **Excel / Google Sheets**
+- **R (tidyverse, dplyr)**
+- **Power BI / Tableau** for visualization after cleaning
+
+---
+
+**Tip:** Always **back up raw data** before cleaning. Work on a copy to avoid losing original data.
