@@ -1,1 +1,87 @@
+# Exploratory Data Analysis (EDA) and Data Types
 
+This document explains **exploratory data analysis**, different **data types**, and handling **outliers** in datasets, using the Road Safety Analytics dataset as an example.
+
+---
+
+## 1. What is Exploratory Data Analysis (EDA)?
+
+**EDA** is the process of **analyzing datasets to summarize their main characteristics**, often using:
+
+- **Visualizations**: Histograms, bar charts, pie charts, box plots
+- **Statistics**: Mean, median, mode, standard deviation, min, max
+- **Data inspection**: Checking missing values, duplicates, and inconsistencies
+
+**Purpose of EDA:**
+
+- Understand data distribution
+- Identify patterns, trends, and anomalies
+- Detect outliers and missing values
+- Prepare data for modeling or visualization
+
+---
+
+## 2. Data Types
+
+Datasets usually contain different types of data. Knowing the type helps decide how to analyze it.
+
+### **a) Numerical Data (Quantitative)**
+- Measurable quantities
+- Can be **discrete** (countable) or **continuous** (range of values)
+- Examples: Driver age, number of accidents, speed of vehicle
+- Operations: Sum, mean, median, standard deviation
+
+### **b) Categorical Data (Qualitative)**
+- Represents groups or categories
+- **Subtypes:**
+  - **Nominal:** No order (Gender, Road Type, Weather Condition)
+  - **Ordinal:** Ordered categories (Accident severity: Minor < Serious < Fatal)
+- Operations: Counting, grouping, percentages
+
+### **c) Time-Series Data**
+- Data points collected over **time**
+- Examples: Date of accidents, monthly accident count
+- Used for trends and seasonal analysis
+
+---
+
+## 3. Outliers
+
+**Outliers** are data points significantly different from others. They can **distort analysis** and should be handled carefully.
+
+### **Causes of Outliers:**
+- Data entry errors (e.g., Age = 150)
+- Measurement errors
+- True but extreme values (rare events)
+
+### **Detection Methods:**
+- **Box plot**: Values outside the interquartile range (IQR)
+- **Z-score**: Values beyond 3 standard deviations from mean
+
+### **Handling Outliers:**
+- Remove obviously wrong values (e.g., negative age)
+- Replace with median or mean
+- Keep them if they are valid extreme cases
+
+---
+
+## 4. Practical Example in Road Safety Data
+
+| Column               | Data Type        | Notes on Cleaning & Outliers                     |
+|---------------------|----------------|-------------------------------------------------|
+| Driver Age           | Numerical      | Filled missing values, removed ages <0 or >120 |
+| Gender               | Categorical    | Standardized `Male/Female/Unknown`             |
+| Road Type            | Categorical    | Fixed inconsistent spellings                   |
+| Accident Severity    | Ordinal        | Minor < Serious < Fatal                        |
+| Accident Date        | Time-Series    | Converted to consistent `YYYY-MM-DD` format   |
+| Alcohol Involvement  | Categorical    | Missing values replaced with `Unknown`        |
+
+**EDA Outputs:**
+- Bar charts for accident counts by road type or severity
+- Histograms for driver age distribution
+- Box plots to detect age outliers
+- Pie charts for weather conditions or alcohol involvement
+
+---
+
+**Tip:** EDA is essential **before modeling or visualization**. It helps you understand the dataset and make informed decisions about cleaning and analysis.
