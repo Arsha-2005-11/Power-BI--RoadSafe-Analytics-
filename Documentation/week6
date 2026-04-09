@@ -1,25 +1,12 @@
-# Fact Table and Dimension Table
+Fact Table
+The Fact Table is the central table in a star or snowflake schema that stores quantitative metrics of a business process. It usually contains numeric data like sales amount, accident count, or revenue, and includes **foreign keys** linking to dimension tables.  
 
-In a **data warehouse**, data is organized into **Fact Tables** and **Dimension Tables** to support efficient analytical queries.
+Dimension Table
+The Dimension Table contains descriptive attributes that provide context to the facts. It holds categorical or textual information such as road type, weather, location, or time.  
 
-### Fact Table
-The **Fact Table** is the central table in a star or snowflake schema that stores **quantitative metrics** of a business process. It usually contains numeric data like sales amount, accident count, or revenue, and includes **foreign keys** linking to dimension tables.  
-**Example:**
 
-| Accident_ID | Date_ID | Road_ID | Accident_Count | Fatalities |
-|------------|---------|--------|----------------|-----------|
-| 1          | 20260101| 101    | 3              | 1         |
-
-### Dimension Table
-The **Dimension Table** contains **descriptive attributes** that provide context to the facts. It holds categorical or textual information such as road type, weather, location, or time.  
-**Example:**
-
-| Road_ID | Road_Type        | Road_Name | State      |
-|--------|-----------------|-----------|------------|
-| 101    | National Highway | NH-45     | Tamil Nadu |
-
-### Key Points
-- Fact tables focus on **metrics**, dimension tables focus on **descriptions**.  
-- Fact tables **link to multiple dimension tables** using foreign keys.  
-- Common schema designs: **Star Schema** (fact table in center, dimension tables around) or **Snowflake Schema** (dimension tables normalized).
+That is,
+- Fact tables focus on metrics, dimension tables focus on descriptions.  
+- Fact tables link to multiple dimension tables** using foreign keys.  
+- Common schema designs: Star Schema (fact table in center, dimension tables around) or **Snowflake Schema** (dimension tables normalized).
 
